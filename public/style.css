@@ -1,0 +1,238 @@
+body, label, input, button {
+	font-family: -apple-system, sans-serif;
+	font-size: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-between;
+  padding-top: 1em;
+}
+
+h1 {
+  font-size: inherit;
+  margin: 0 0 1em 1em;
+}
+
+form {
+  flex: 1 1 auto;
+  margin: 0 1em 1em;
+}
+
+input {
+  box-sizing: border-box;
+	border-radius: 0.5em;
+	border: none;
+  margin: 0;
+  padding: 0.5em 0.5em;
+	outline: none;
+  background-color: #f6f6f6;
+  width: 100%;
+}
+
+input:focus {
+	color: black;
+}
+
+input::placeholder {
+  color: #999;
+  text-align: center;
+}
+
+nav span {
+  display: flex;
+  align-items: center;
+  margin: 0 1em 1em 0;
+}
+
+nav span a,
+nav span a:visited,
+nav span a:hover {
+  color: #07f;
+  text-decoration: none;
+}
+
+.songs {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding: 0 1em;
+}
+
+.songs section {
+  counter-increment: item;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.songs div {
+  margin-right: 1em;
+  height: 5em;
+  width: 5em;
+  background: #eee;
+  border-radius: 50%;
+}
+
+.songs div::before {
+  display: block;
+  margin: 0.25em; 
+  height: 2em;
+  width: 2em;
+  background-color: white;
+  border-radius: 50%;
+  content: counter(item);
+  font-size: 200%;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2em;
+  color: black;
+}
+
+.songs div:hover::before {
+  content: "\25B6";
+}
+
+.songs div.play:hover::before {
+  content: "\25AE\25AE";
+}
+
+.songs img,
+.songs aside {
+  display: none;
+}
+
+#answers,
+#answers + label {
+  opacity: 0;
+}
+
+#answers + label {
+  color: #07f;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+#answers:checked + label {
+  background-color: #07f;
+  color: white;
+}
+
+.answers {
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.answers div {
+  font-size: 50%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.answers img {
+  display: block;
+  width: 2em;
+  margin: 0 1em 0 0.5em;
+  border-radius: 0.25em;
+}
+
+.answers aside {
+  display: block;
+}
+
+#results {
+  margin-bottom: 1em;
+}
+
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+  color: #999;
+}
+
+ul div,
+ol div {
+  padding: 0.5em 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+li a {
+  color: black;
+  text-decoration: none;
+}
+
+li a:hover {
+  cursor: pointer;
+  color: white;
+}
+
+li a div img {
+  float: left;
+  width: 2em;
+  margin-right: 1em;
+  border-radius: 0.25em;
+  vertical-align: middle;
+}
+
+aside em,
+li em {
+  font-style: normal;
+  opacity: 0.4;
+}
+
+li:nth-child(even) {
+  background-color: #f6f6f6;
+}
+
+#results li:hover {
+  background-color: #07f;
+}
+
+#playlist li:hover {
+  background-color: #f33;
+}
+
+li a:hover::before,
+#playlist a::before {
+  float: right;
+  padding: 0.25em 0.5em;
+  font-size: 200%;
+  line-height: 1;
+}
+
+#results a:hover::before {
+  content: "+";
+}
+
+#playlist li {
+  counter-increment: item;
+}
+
+#playlist a::before {
+  content: counter(item);
+}
+
+#playlist a:hover::before {
+  content: "\00D7";
+}
+
+@media screen and (max-width: 768px) {
+  body, label, input, button {
+	  font-size: 18px;
+  }
+  form {
+    order: 2;
+    flex-basis: 100%;
+  }
+}

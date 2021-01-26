@@ -1,0 +1,36 @@
+extends index.pug
+
+block content
+  nav
+    h1 &#127925; Music Trivia!
+    form(action="/search")
+      input(name="term" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" placeholder="🔍 Search for music")
+    span
+      a(href="/" title="Play Music Trivia") Done
+  if results
+    ul#results
+      div Search for: #{term}
+      if results.resultCount == 0
+        div No results.
+      else
+          each result in results.results
+            if result.wrapperType == 'track'
+              li
+                a(href="/add/" + result.trackId)
+                  div
+                    img(src=result.artworkUrl100)
+                    span #{result.trackName} <br/>
+                      em #{result.artistName}
+  ol#playlist
+    if songs.length > 0
+      div Playlist
+      each song in songs
+        li
+          a(href="/del/" + song.trackId)
+            div
+              img(src=song.artworkUrl100)
+              span #{song.trackName} <br/>
+              em #{song.artistName}
+    else if !results
+      div Search for some tracks to get started!
+block scripts

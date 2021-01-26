@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Music Trivia
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    block style
+      link(rel="stylesheet" href="/style.css")
+  body
+    block content
+      nav
+        h1 &#127925; Music Trivia!
+        span
+          input#answers(type="checkbox")
+          label(for="answers") Answers
+      .songs
+        if songs.length > 0
+          each song in songs
+            section
+              div
+              audio(preload="none" src=song.previewUrl)
+              img(src=song.artworkUrl100)
+              aside #{song.trackName} <br/>
+                em #{song.artistName}
+        else
+          p Add some tracks to get started!
+    block scripts
+      script(src="https://code.jquery.com/jquery-2.2.1.min.js")
+      script(src="/client.js")

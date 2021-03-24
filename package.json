@@ -1,7 +1,7 @@
 {
-  "name": "hits",
+  "name": "musictrivia",
   "version": "1.0.0",
-  "description": "Vote for your favourite songs",
+  "description": "Music trivia using the iTunes Search API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

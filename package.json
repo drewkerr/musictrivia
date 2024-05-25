@@ -7,12 +7,12 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "pug": "^3.0.2",
+    "express": "^4.19.2",
+    "pug": "^3.0.3",
     "request": "^2.88.2"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/hits"
